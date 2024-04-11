@@ -1,0 +1,9 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="NoRebootPackage" Manufacturer="TODO Manufacturer" Version="1.0.0.0" UpgradeCode="4d2ee8c1-2b11-47a3-8985-96518454af1d">
+    <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
+
+    <Feature Id="Main">
+      <ComponentGroupRef Id="ExampleComponents" />
+    </Feature>
+  </Package>
+</Wix>
