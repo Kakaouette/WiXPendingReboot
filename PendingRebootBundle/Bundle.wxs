@@ -1,14 +1,20 @@
 ﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal">
-  <Bundle Name="PendingRebootBundle" Manufacturer="TODO Manufacturer" Version="1.0.0.0" UpgradeCode="70b4bbf0-acdc-4f33-8f39-610f88e39b4e">
+  <!-- Bundle with 1 ExePackage.
+        The source file for the ExePackage would not leave the computer in a state requiring a restart.
+        However, now that it is part of a parent bundle, this will leave the computer in a state requiring a restart. -->
+  <Bundle Name="PendingRebootBundle"
+          Manufacturer="Manufacturer"
+          Version="1.0.0.0"
+          UpgradeCode="70b4bbf0-acdc-4f33-8f39-610f88e39b4e">
     <BootstrapperApplication>
       <bal:WixStandardBootstrapperApplication LicenseUrl="https://www.example.com/license" Theme="hyperlinkLicense" />
     </BootstrapperApplication>
 
     <Chain>
-      <ExePackage SourceFile="..\Output\NoRebootBundle\NoRebootBundle.exe" >
+      <ExePackage SourceFile="..\Output\NoRebootBundle\NoRebootBundle.exe">
         <ArpEntry Id="PendingRebootBundle"
                   Version="1.0.0.0"
-                  Win64="yes"/>
+                  Win64="yes" />
       </ExePackage>
     </Chain>
 

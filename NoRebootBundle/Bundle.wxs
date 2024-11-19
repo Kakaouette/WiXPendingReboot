@@ -1,11 +1,16 @@
 ﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal">
-  <Bundle Name="NoRebootBundle" Manufacturer="TODO Manufacturer" Version="1.0.0.0" UpgradeCode="75a32212-aa7c-4654-b46c-7e0099459f2c">
+  <!-- Bundle with 1 MsiPackage.
+        This will not leave the computer in a state requiring a restart. -->
+  <Bundle Name="NoRebootBundle"
+          Manufacturer="Manufacturer"
+          Version="1.0.0.0"
+          UpgradeCode="75a32212-aa7c-4654-b46c-7e0099459f2c">
     <BootstrapperApplication>
       <bal:WixStandardBootstrapperApplication LicenseUrl="https://www.example.com/license" Theme="hyperlinkLicense" />
     </BootstrapperApplication>
 
-    <Chain>
-       <MsiPackage SourceFile="..\Output\NoRebootPackage\en-US\NoRebootPackage.msi" /> 
+    <Chain DisableSystemRestore="yes">
+      <MsiPackage SourceFile="..\Output\NoRebootPackage\en-US\NoRebootPackage.msi" />
     </Chain>
 
   </Bundle>
